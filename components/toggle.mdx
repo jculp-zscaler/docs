@@ -1,0 +1,87 @@
+---
+title: "Toggle"
+description: "Toggles switch a single setting on or off with immediate effect — no save button required."
+icon: "toggle-right"
+---
+
+import { ToggleSandbox } from "/snippets/toggle-playground.jsx";
+
+<Badge color="green" size="sm" icon="circle-check" children="Stable" /> <Badge color="blue" size="sm" icon="sparkles" children={<>New in v3.2: <code>sm</code> size</>} />
+
+## Sandbox
+
+Edit the Toggle markup to explore initial state, size, and disabled behavior. The rendered controls remain interactive.
+
+<ToggleSandbox />
+
+<CodeGroup>
+
+```jsx React
+import { Toggle } from "@zenith/ui";
+
+<Toggle checked={enabled} onChange={setEnabled}>
+  Enable SSL inspection
+</Toggle>
+```
+
+```html HTML
+<label class="zds-toggle">
+  <input type="checkbox" checked />
+  <span class="zds-toggle__track"></span>
+  <span>Enable SSL inspection</span>
+</label>
+```
+
+</CodeGroup>
+
+## Props
+
+| Prop       | Type              | Default | Description                                  |
+| :--------- | :---------------- | :------ | :------------------------------------------- |
+| `checked`  | `boolean`         | —       | Controlled on/off state.                     |
+| `onChange` | `(next: boolean)` | —       | Called with the next state.                  |
+| `size`     | `"md" \| "sm"`    | `"md"`  | Track size. Use `sm` in dense tables.        |
+| `disabled` | `boolean`         | `false` | Prevents interaction.                        |
+| `children` | `ReactNode`       | —       | Visible label. Required.                     |
+
+## Usage
+
+<Columns cols={2}>
+  <div className="zds-do not-prose">
+    <span className="zds-do__label">Do</span>
+    <div className="zds-do__example">
+      <label className="zds-toggle"><input type="checkbox" defaultChecked /><span className="zds-toggle__track" /><span>Enable SSL inspection</span></label>
+    </div>
+    <p className="zds-do__caption">Label the setting, not the action — state the thing being controlled.</p>
+  </div>
+  <div className="zds-dont not-prose">
+    <span className="zds-dont__label">Don't</span>
+    <div className="zds-dont__example">
+      <label className="zds-toggle"><input type="checkbox" /><span className="zds-toggle__track" /><span>Click to turn on</span></label>
+    </div>
+    <p className="zds-dont__caption">Don't describe the mechanics — the control already communicates them.</p>
+  </div>
+</Columns>
+
+## Accessibility
+
+<AccordionGroup>
+  <Accordion title="Keyboard and semantics" icon="accessibility">
+    | Key              | Behavior                    |
+    | :--------------- | :-------------------------- |
+    | <kbd>Tab</kbd>   | Moves focus to the toggle.  |
+    | <kbd>Space</kbd> | Flips the state.            |
+
+    - Built on a native checkbox with `role="switch"` semantics from the label association.
+    - The focus ring renders on the visible track, not the hidden input.
+  </Accordion>
+</AccordionGroup>
+
+## Design tokens
+
+| Token                        | Role              |
+| :--------------------------- | :---------------- |
+| `--zds-color-primary`        | Checked track     |
+| `--zds-color-border-strong`  | Unchecked track   |
+| `--zds-radius-full`          | Track radius      |
+| `--zds-duration` / `--zds-ease` | Thumb motion   |

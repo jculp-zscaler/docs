@@ -1,0 +1,99 @@
+---
+title: "Modal"
+description: "Modals interrupt the flow for decisions that can't wait. Use them sparingly and make the decision clear."
+icon: "layers"
+---
+
+import { ModalSandbox } from "/snippets/modal-playground.jsx";
+
+<Badge color="green" size="sm" icon="circle-check">
+  Stable
+</Badge>
+<Badge size="sm">v3.2</Badge>
+<Badge color="blue" size="sm">
+  WCAG 2.2 AA
+</Badge>
+
+## Sandbox
+
+Edit the Modal markup and footer actions below. The rendered modal stays contained in the result surface; in your app, it overlays the full viewport.
+
+<ModalSandbox />
+
+<CodeGroup>
+
+```jsx React
+import { Modal, Button } from "@zenith/ui";
+
+<Modal open={open} onClose={close} title="Delete firewall rule?">
+  This removes the rule from all 42 locations. You can't undo this action.
+  <Modal.Footer>
+    <Button variant="secondary" onClick={close}>
+      Cancel
+    </Button>
+    <Button variant="danger" onClick={confirm}>
+      Delete rule
+    </Button>
+  </Modal.Footer>
+</Modal>;
+```
+
+```html HTML
+<div class="zds-modal-overlay">
+  <div class="zds-modal" role="dialog" aria-modal="true">
+    <div class="zds-modal__header">
+      <p class="zds-modal__title">Delete firewall rule?</p>
+      <button class="zds-modal__close" aria-label="Close">×</button>
+    </div>
+    <div class="zds-modal__body">
+      This removes the rule from all 42 locations.
+    </div>
+    <div class="zds-modal__footer">
+      <button class="zds-btn zds-btn--secondary zds-btn--sm">Cancel</button>
+      <button class="zds-btn zds-btn--danger zds-btn--sm">Delete rule</button>
+    </div>
+  </div>
+</div>
+```
+
+</CodeGroup>
+
+## Props
+
+| Prop          | Type         | Default | Description                                                              |
+| :------------ | :----------- | :------ | :----------------------------------------------------------------------- |
+| `open`        | `boolean`    | —       | Controlled visibility.                                                   |
+| `onClose`     | `() => void` | —       | Called on close button, overlay click, or <kbd>Esc</kbd>.                |
+| `title`       | `string`     | —       | Modal heading. Required.                                                 |
+| `dismissible` | `boolean`    | `true`  | When `false`, hides the close button and disables overlay/Esc dismissal. |
+| `children`    | `ReactNode`  | —       | Body content and optional `Modal.Footer`.                                |
+
+## Usage
+
+- Reserve modals for decisions that block the task: confirmations, destructive actions, required input.
+- Title as a question, footer as the answer: the primary button text should answer the title ("Delete firewall rule?" → "Delete rule").
+- Never stack modals. If a flow needs multiple steps, use a full page.
+- Set `dismissible={false}` only when closing would lose unrecoverable work.
+
+## Accessibility
+
+<AccordionGroup>
+  <Accordion title="Keyboard and focus" icon="accessibility">
+    | Key | Behavior |
+    | :-- | :-- |
+    | <kbd>Esc</kbd> | Closes the modal (when dismissible). |
+    | <kbd>Tab</kbd> / <kbd>Shift\+Tab</kbd> | Cycles focus inside the modal (focus is trapped). |
+
+    - Focus moves to the modal on open and returns to the trigger on close.
+    - `role="dialog"` with `aria-modal="true"`; the title is the accessible name.
+
+  </Accordion>
+</AccordionGroup>
+
+## Design tokens
+
+| Token                    | Role             |     |
+| :----------------------- | :--------------- | --- |
+| `--zds-color-bg-surface` | Panel background |     |
+| `--zds-shadow-4`         | Panel elevation  |     |
+| `--zds-radius-lg`        | Panel radius     |     |

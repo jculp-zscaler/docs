@@ -1,0 +1,57 @@
+---
+title: "Iconography"
+description: "ZDS uses the Lucide icon set: consistent 24px grid, 2px strokes, rounded caps."
+icon: "shapes"
+---
+
+## Common icons
+
+<div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-4 not-prose">
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="shield-check" size={24} /><code>shield-check</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="globe" size={24} /><code>globe</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="lock" size={24} /><code>lock</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="settings" size={24} /><code>settings</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="search" size={24} /><code>search</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="chart-line" size={24} /><code>chart-line</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="users" size={24} /><code>users</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="server" size={24} /><code>server</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="triangle-alert" size={24} /><code>triangle-alert</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="circle-check" size={24} /><code>circle-check</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="cloud" size={24} /><code>cloud</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="network" size={24} /><code>network</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="filter" size={24} /><code>filter</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="download" size={24} /><code>download</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="external-link" size={24} /><code>external-link</code></div>
+  <div className="zds-elevation-tile" style={{ height: "88px" }}><Icon icon="trash-2" size={24} /><code>trash-2</code></div>
+</div>
+
+## Sizes
+
+| Size | Use for                                |
+| :--- | :------------------------------------- |
+| 16px | Inline with body text, table cells     |
+| 20px | Buttons, form fields, navigation       |
+| 24px | Page headers, empty states, feature tiles |
+
+## Rules
+
+- Icons are always paired with text or an `aria-label` — never a bare icon button without a name.
+- Decorative icons set `aria-hidden="true"`.
+- Keep the 2px stroke; don't scale icons by changing stroke weight.
+- Use the outline style everywhere; filled variants are reserved for active navigation states.
+
+<CodeGroup>
+
+```jsx React
+import { Icon } from "@zenith/ui";
+
+<Icon name="shield-check" size={20} aria-hidden="true" />
+```
+
+```html HTML
+<svg class="zds-icon" width="20" height="20" aria-hidden="true">
+  <use href="/icons.svg#shield-check" />
+</svg>
+```
+
+</CodeGroup>

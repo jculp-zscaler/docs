@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Zenith Design System Figma library cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07142E"/>
+      <stop offset="1" stop-color="#134093"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="680" cy="80" r="140" fill="#226BF5" opacity="0.25"/>
+  <circle cx="720" cy="380" r="90" fill="#4C86F7" opacity="0.18"/>
+  <text x="60" y="120" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="bold" fill="#FFFFFF">Zenith Design System</text>
+  <text x="60" y="160" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#B3CDFB">Figma library · v3.2</text>
+  <rect x="60" y="210" width="150" height="44" rx="8" fill="#226BF5"/>
+  <text x="87" y="238" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#FFFFFF">Deploy policy</text>
+  <rect x="230" y="210" width="120" height="44" rx="8" fill="none" stroke="#7FA9F9" stroke-width="1.5"/>
+  <text x="258" y="238" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#D9E6FD">Cancel</text>
+  <rect x="60" y="290" width="90" height="26" rx="13" fill="#D7F2E7"/>
+  <circle cx="78" cy="303" r="4" fill="#0B7F58"/>
+  <text x="90" y="308" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#0B7F58">Active</text>
+  <rect x="60" y="340" width="290" height="44" rx="8" fill="#0F1B31" stroke="#364259"/>
+  <text x="76" y="367" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#6E7D96">e.g. hq-primary-gre</text>
+  <rect x="380" y="340" width="52" height="28" rx="14" fill="#226BF5"/>
+  <circle cx="417" cy="354" r="11" fill="#FFFFFF"/>
+</svg>

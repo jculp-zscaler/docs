@@ -1,0 +1,51 @@
+---
+title: "Release process"
+description: "Semver policy, the release train, and how deprecations work in @zenith/ui."
+icon: "rocket"
+---
+
+<Info>
+  **Migrated from Confluence** · Space `ZDS` · Final Confluence revision 2026-07-30 · This page is now maintained here and only here.
+</Info>
+
+## Versioning
+
+`@zenith/ui` follows semver, interpreted strictly for a design system:
+
+| Bump      | What qualifies                                                        | Example                              |
+| :-------- | :-------------------------------------------------------------------- | :----------------------------------- |
+| **Patch** | Bug fixes, a11y fixes, token value corrections with no layout impact  | Focus ring contrast fix              |
+| **Minor** | New components, new props/variants, new tokens, deprecation notices   | Toggle `sm` size                     |
+| **Major** | Removing anything, changing a default, visual changes that shift layout | Removing a deprecated prop           |
+
+<Warning>
+  A visual change that shifts layout is **breaking** even if no API changed. Screenshots diff against the component sandbox pages during release QA.
+</Warning>
+
+## Release train
+
+- **Minor releases** ship on the first Tuesday of each month.
+- **Patches** ship as needed, usually within two business days of a fix landing.
+- **Majors** are rare (roughly yearly), announced one minor ahead, and ship with a codemod where feasible.
+
+Every release: the [changelog](/changelog) entry is written first, reviewed like code, and links the `DS` tickets it closes.
+
+## Deprecation policy
+
+1. The deprecation lands in a **minor** release: console warning in dev builds, strikethrough in the docs, changelog notice.
+2. The old API keeps working for **at least one full minor cycle**.
+3. Removal happens only in the next **major**, listed prominently in the migration notes.
+
+## Release QA gate
+
+<Steps>
+  <Step title="Visual regression">
+    Every component sandbox page is screenshot-diffed in light and dark themes.
+  </Step>
+  <Step title="A11y smoke test">
+    Keyboard-only pass over every changed component, per the [accessibility pattern](/patterns/accessibility).
+  </Step>
+  <Step title="Docs parity">
+    Props tables and sandboxes must match the shipped API — a docs mismatch blocks the release.
+  </Step>
+</Steps>

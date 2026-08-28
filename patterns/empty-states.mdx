@@ -1,0 +1,53 @@
+---
+title: "Empty states"
+description: "An empty state is the first-run experience. Tell the user what belongs here and give them one clear way to fill it."
+icon: "inbox"
+---
+
+## Anatomy
+
+An empty state has exactly four parts, top to bottom: an icon, a one-line headline, one sentence of context, and a single primary action.
+
+<Frame caption="First-run empty state">
+  <div className="zds-preview not-prose">
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px", textAlign: "center", maxWidth: "320px" }}>
+      <Icon icon="inbox" size={32} />
+      <p style={{ fontWeight: 500, fontSize: "16px", margin: 0, color: "var(--zds-color-text)" }}>No forwarding rules yet</p>
+      <p style={{ fontSize: "14px", margin: 0, color: "var(--zds-color-text-secondary)" }}>Rules route traffic from locations to the nearest edge. Your first rule applies within seconds.</p>
+      <button className="zds-btn zds-btn--primary zds-btn--md">Create rule</button>
+    </div>
+  </div>
+</Frame>
+
+## Rules
+
+- **Headline states the fact** ("No forwarding rules yet"), never blames ("You haven't created any rules").
+- **Context sells the value** of the first item, in one sentence.
+- **One action only.** If there are two ways to get started, pick the one that succeeds most often.
+- Use a 32px [icon](/foundations/iconography), never an illustration — illustrations aren't themable.
+
+## Variants
+
+| Situation           | Difference                                                                 |
+| :------------------ | :------------------------------------------------------------------------- |
+| First run           | The pattern above.                                                          |
+| Empty search result | Headline echoes the query; action clears filters. No primary button.       |
+| Error loading       | Use an [Alert](/components/alert) with `severity="danger"` instead — an error is not an empty state. |
+| Permission gated    | Say who can add content; action becomes "Request access".                  |
+
+<Columns cols={2}>
+  <div className="zds-do not-prose">
+    <span className="zds-do__label">Do</span>
+    <div className="zds-do__example">
+      <span style={{ fontSize: "14px", color: "var(--zds-color-text-secondary)" }}>"No results for <strong>gre-tunel</strong>" + Clear filters</span>
+    </div>
+    <p className="zds-do__caption">Echo the query so typos are self-evident.</p>
+  </div>
+  <div className="zds-dont not-prose">
+    <span className="zds-dont__label">Don't</span>
+    <div className="zds-dont__example">
+      <span style={{ fontSize: "14px", color: "var(--zds-color-text-secondary)" }}>"Nothing to see here! 🎉"</span>
+    </div>
+    <p className="zds-dont__caption">Don't celebrate an empty result the user didn't want.</p>
+  </div>
+</Columns>

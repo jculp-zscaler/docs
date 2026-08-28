@@ -1,0 +1,49 @@
+---
+title: "Design review checklist"
+description: "The checklist every component clears before it ships. Reviewers sign the intake ticket against these items."
+icon: "list-checks"
+---
+
+<Info>
+  **Migrated from Confluence** · Space `ZDS` · Final Confluence revision 2026-07-30 · This page is now maintained here and only here.
+</Info>
+
+## Tokens and theming
+
+| # | Check                                                                  |
+| : | :---------------------------------------------------------------------- |
+| 1 | Every color, radius, shadow, and spacing value resolves to a [token](/foundations/design-tokens) — zero hard-coded values. |
+| 2 | Only **semantic** tokens are consumed; core ramps never appear in component CSS. |
+| 3 | Dark mode verified by toggling the theme, not by a separate stylesheet. |
+
+## States
+
+| # | Check                                                                  |
+| : | :---------------------------------------------------------------------- |
+| 4 | All interactive states designed: rest, hover, focus, active, disabled, loading, error where applicable. |
+| 5 | Focus state uses `--zds-focus-ring` and is visible against every sanctioned background. |
+| 6 | Empty, overflow, and truncation behavior specified (long labels, missing data). |
+
+## API
+
+| # | Check                                                                  |
+| : | :---------------------------------------------------------------------- |
+| 7 | Prop names match existing conventions (`variant`, `size`, `tone`, `disabled`). |
+| 8 | Defaults are the safest, most common configuration.                     |
+| 9 | The component sandbox can express every prop — if a prop can't be rendered from JSX, reconsider it. |
+
+## Accessibility
+
+| # | Check                                                                  |
+| :- | :---------------------------------------------------------------------- |
+| 10 | Keyboard map documented and tested; matches the [accessibility pattern](/patterns/accessibility). |
+| 11 | Name, role, and state announced correctly by VoiceOver and NVDA.        |
+| 12 | Contrast verified against the [color rules](/foundations/color#contrast-rules) in both themes. |
+
+## Documentation
+
+| # | Check                                                                  |
+| :- | :---------------------------------------------------------------------- |
+| 13 | Sandbox, canonical examples, props table, do/don't pairs, and token table all present. |
+| 14 | Do/don't examples come from real product situations, not invented ones. |
+| 15 | The [status matrix](/components/overview) row is added with version and a11y status. |

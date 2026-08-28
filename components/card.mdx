@@ -1,0 +1,100 @@
+---
+title: "Card"
+description: "Cards group related content and actions into a single scannable surface."
+icon: "square"
+---
+
+import { CardSandbox } from "/snippets/card-playground.jsx";
+
+<Badge color="green" size="sm" icon="circle-check" children="Stable" /> <Badge color="gray" size="sm" children="v3.2" /> <Badge color="blue" size="sm" children="WCAG 2.2 AA" />
+
+## Sandbox
+
+Edit the Card markup to compare surface treatments and compose footer actions.
+
+<CardSandbox />
+
+<CodeGroup>
+
+```jsx React
+import { Card, Badge, Button } from "@zenith/ui";
+
+<Card title="Traffic insights" interactive media={<Thumbnail />}>
+  Weekly summary of policy hits across all locations.
+  <Card.Footer>
+    <Badge tone="success" dot>Live</Badge>
+    <Button variant="ghost" size="sm">View report</Button>
+  </Card.Footer>
+</Card>
+```
+
+```html HTML
+<div class="zds-card zds-card--interactive">
+  <div class="zds-card__media"></div>
+  <div class="zds-card__body">
+    <p class="zds-card__title">Traffic insights</p>
+    <p class="zds-card__desc">Weekly summary of policy hits across all locations.</p>
+  </div>
+</div>
+```
+
+</CodeGroup>
+
+## Props
+
+| Prop          | Type        | Default | Description                                          |
+| :------------ | :---------- | :------ | :--------------------------------------------------- |
+| `title`       | `string`    | —       | Card heading.                                        |
+| `media`       | `ReactNode` | —       | Optional media slot rendered above the body.         |
+| `interactive` | `boolean`   | `false` | Adds hover lift; the whole card becomes a click target. |
+| `elevated`    | `boolean`   | `false` | Borderless style with a level-3 shadow.              |
+| `children`    | `ReactNode` | —       | Body content and optional `Card.Footer`.             |
+
+## Usage
+
+<Columns cols={2}>
+  <div className="zds-do not-prose">
+    <span className="zds-do__label">Do</span>
+    <div className="zds-do__example">
+      <div className="zds-card zds-card--interactive" style={{ width: "200px" }}>
+        <div className="zds-card__body">
+          <p className="zds-card__title">One idea</p>
+          <p className="zds-card__desc">One destination per card.</p>
+        </div>
+      </div>
+    </div>
+    <p className="zds-do__caption">Interactive cards have exactly one destination.</p>
+  </div>
+  <div className="zds-dont not-prose">
+    <span className="zds-dont__label">Don't</span>
+    <div className="zds-dont__example">
+      <div className="zds-card" style={{ width: "200px" }}>
+        <div className="zds-card__body">
+          <p className="zds-card__title">Kitchen sink</p>
+          <p className="zds-card__desc">Three links, two buttons, a table…</p>
+        </div>
+      </div>
+    </div>
+    <p className="zds-dont__caption">Don't nest competing click targets inside an interactive card.</p>
+  </div>
+</Columns>
+
+## Accessibility
+
+<AccordionGroup>
+  <Accordion title="Semantics" icon="accessibility">
+    - Interactive cards render as a single `<a>` element; inner actions are not focusable separately.
+    - The card title is a heading element, keeping the page outline intact.
+    - Hover lift uses `transform` only — it respects `prefers-reduced-motion`.
+  </Accordion>
+</AccordionGroup>
+
+## Design tokens
+
+| Token                    | Role               |
+| :----------------------- | :----------------- |
+| `--zds-color-bg-surface` | Card background    |
+| `--zds-color-border`     | Card border        |
+| `--zds-shadow-1`         | Resting elevation  |
+| `--zds-shadow-3`         | Hover / elevated   |
+| `--zds-radius-lg`        | Corner radius      |

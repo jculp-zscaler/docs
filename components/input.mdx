@@ -1,0 +1,92 @@
+---
+title: "Input"
+description: "Text inputs collect short free-form values. Always pair them with a visible label."
+icon: "text-cursor-input"
+---
+
+import { InputSandbox } from "/snippets/input-playground.jsx";
+
+<Badge color="green" size="sm" icon="circle-check" children="Stable" /> <Badge color="gray" size="sm" children="v3.2" /> <Badge color="blue" size="sm" children="WCAG 2.2 AA" />
+
+## Sandbox
+
+Edit the Input markup to explore labels, hints, errors, and disabled states. The rendered fields remain editable.
+
+<InputSandbox />
+
+<CodeGroup>
+
+```jsx React
+import { Input } from "@zenith/ui";
+
+<Input
+  label="Tunnel name"
+  placeholder="e.g. hq-primary-gre"
+  hint="Lowercase letters, numbers, and hyphens only."
+  required
+/>
+```
+
+```html HTML
+<div class="zds-field">
+  <label class="zds-field__label zds-field__label--required" for="tunnel">Tunnel name</label>
+  <input class="zds-input" id="tunnel" placeholder="e.g. hq-primary-gre" />
+  <span class="zds-field__hint">Lowercase letters, numbers, and hyphens only.</span>
+</div>
+```
+
+</CodeGroup>
+
+## Props
+
+| Prop          | Type      | Default | Description                                             |
+| :------------ | :-------- | :------ | :------------------------------------------------------ |
+| `label`       | `string`  | —       | Visible label. Required — never rely on placeholder text. |
+| `placeholder` | `string`  | —       | Example value, not instructions.                        |
+| `hint`        | `string`  | —       | Persistent helper text below the field.                 |
+| `error`       | `string`  | —       | Error message; replaces the hint and styles the border. |
+| `required`    | `boolean` | `false` | Marks the label with an asterisk and sets `aria-required`. |
+| `disabled`    | `boolean` | `false` | Prevents editing.                                       |
+
+## Usage
+
+<Columns cols={2}>
+  <div className="zds-do not-prose">
+    <span className="zds-do__label">Do</span>
+    <div className="zds-do__example">
+      <div className="zds-field" style={{ width: "210px" }}>
+        <span className="zds-field__label">Tunnel name</span>
+        <input className="zds-input" placeholder="e.g. hq-primary-gre" />
+      </div>
+    </div>
+    <p className="zds-do__caption">Use the placeholder for an example value.</p>
+  </div>
+  <div className="zds-dont not-prose">
+    <span className="zds-dont__label">Don't</span>
+    <div className="zds-dont__example">
+      <div className="zds-field" style={{ width: "210px" }}>
+        <input className="zds-input" placeholder="Enter your tunnel name here" />
+      </div>
+    </div>
+    <p className="zds-dont__caption">Don't use the placeholder as the label — it disappears on input.</p>
+  </div>
+</Columns>
+
+## Accessibility
+
+<AccordionGroup>
+  <Accordion title="Labeling and errors" icon="accessibility">
+    - The label is programmatically associated via `for`/`id`.
+    - Error messages are linked with `aria-describedby` and the field sets `aria-invalid="true"`.
+    - Error styling changes the border **and** shows a message — color is never the only signal.
+  </Accordion>
+</AccordionGroup>
+
+## Design tokens
+
+| Token                       | Role              |
+| :-------------------------- | :---------------- |
+| `--zds-color-border-strong` | Resting border    |
+| `--zds-color-primary`       | Focus border      |
+| `--zds-color-danger`        | Error border/text |
+| `--zds-focus-ring`          | Focus indicator   |

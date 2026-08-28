@@ -1,0 +1,95 @@
+---
+title: "Color"
+description: "The ZDS palette: a blue brand ramp, a cool neutral ramp, and three status ramps. Every combination ships pre-checked for contrast."
+icon: "palette"
+---
+
+Click any swatch to copy its hex value.
+
+## Brand
+
+<Color variant="table">
+  <Color.Row title="Row 1">
+    <Color.Item name="blue-50" value="#EEF4FE" />
+    <Color.Item name="blue-100" value="#D9E6FD" />
+    <Color.Item name="blue-200" value="#B3CDFB" />
+    <Color.Item name="blue-300" value="#7FA9F9" />
+    <Color.Item name="blue-400" value="#4C86F7" />
+    <Color.Item name="blue-500" value="#2066EE" />
+    <Color.Item name="blue-600" value="#1A55C4" />
+    <Color.Item name="blue-700" value="#134093" />
+    <Color.Item name="blue-800" value="#0D2B62" />
+    <Color.Item name="blue-900" value="#07142E" />
+  </Color.Row>
+</Color>
+
+## Neutrals
+
+<Color variant="table">
+  <Color.Row title="Neutral">
+    <Color.Item name="neutral-50" value="#F7FAFF" />
+    <Color.Item name="neutral-100" value="#EEF2F9" />
+    <Color.Item name="neutral-200" value="#DCE3EF" />
+    <Color.Item name="neutral-300" value="#C2CCDD" />
+    <Color.Item name="neutral-400" value="#98A5BC" />
+    <Color.Item name="neutral-500" value="#6E7D96" />
+    <Color.Item name="neutral-600" value="#4E5B72" />
+    <Color.Item name="neutral-700" value="#364259" />
+    <Color.Item name="neutral-800" value="#1E2A40" />
+    <Color.Item name="neutral-900" value="#0F1B31" />
+  </Color.Row>
+</Color>
+
+## Status
+
+<Color variant="table">
+  <Color.Row title="Success">
+    <Color.Item name="green-100" value="#D7F2E7" />
+    <Color.Item name="green-500" value="#0E9F6E" />
+    <Color.Item name="green-600" value="#0B7F58" />
+  </Color.Row>
+  <Color.Row title="Warning">
+    <Color.Item name="amber-100" value="#FBEEDA" />
+    <Color.Item name="amber-500" value="#D97706" />
+    <Color.Item name="amber-600" value="#B45F04" />
+  </Color.Row>
+  <Color.Row title="Danger">
+    <Color.Item name="red-100" value="#FBDDE3" />
+    <Color.Item name="red-500" value="#DC2643" />
+    <Color.Item name="red-600" value="#B21E36" />
+  </Color.Row>
+</Color>
+
+## Contrast rules
+
+| Pairing | Minimum ratio | Where it applies |
+| :-- | :-- | :-- |
+| Body text on any background | 4.5:1 | All text under 18px |
+| Large text (≥ 18px medium) | 3:1 | Headings, hero copy |
+| UI component boundaries | 3:1 | Input borders, focus rings, icons |
+
+Use `blue-500` and up for text on light backgrounds; `blue-300` and lighter for text on dark backgrounds. Status colors at the `500` step pass 4.5:1 on white; the `100` steps are backgrounds only.
+
+## Usage
+
+<Columns cols={2}>
+  <div className="zds-do not-prose">
+  <span className="zds-do__label">Do</span>
+
+  <div className="zds-do__example">
+    <span className="zds-badge zds-badge--danger"><span className="zds-badge__dot" />Blocked</span>
+  </div>
+
+  <p className="zds-do__caption">Reserve red for errors and destructive actions.</p>
+</div>
+
+  <div className="zds-dont not-prose">
+  <span className="zds-dont__label">Don't</span>
+
+  <div className="zds-dont__example">
+    <span className="zds-badge zds-badge--danger"><span className="zds-badge__dot" />New feature!</span>
+  </div>
+
+  <p className="zds-dont__caption">Don't use status colors for emphasis — they lose meaning.</p>
+</div>
+</Columns>

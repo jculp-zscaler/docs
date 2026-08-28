@@ -1,0 +1,41 @@
+---
+title: "Component library"
+description: "Every ZDS component, its status, and its accessibility coverage. Each page includes an editable JSX sandbox."
+icon: "component"
+---
+
+Every component page includes an editable JSX sandbox. Change documented props and children to compare states, then copy the markup into your app.
+
+## Status matrix
+
+| Component                          | Status                                                                                              | Since | Accessibility | Category   |
+| :--------------------------------- | :--------------------------------------------------------------------------------------------------- | :---- | :------------ | :--------- |
+| [Button](/components/button)       | <Badge color="green" size="xs" children="Stable" />      | v1.0  | WCAG 2.2 AA   | Actions    |
+| [Toggle](/components/toggle)       | <Badge color="green" size="xs" children="Stable" />      | v2.1  | WCAG 2.2 AA   | Actions    |
+| [Input](/components/input)         | <Badge color="green" size="xs" children="Stable" />      | v1.0  | WCAG 2.2 AA   | Forms      |
+| [Select](/components/select)       | <Badge color="green" size="xs" children="Stable" />      | v1.2  | WCAG 2.2 AA   | Forms      |
+| [Alert](/components/alert)         | <Badge color="green" size="xs" children="Stable" />      | v1.0  | WCAG 2.2 AA   | Feedback   |
+| [Badge](/components/badge)         | <Badge color="green" size="xs" children="Stable" />      | v1.1  | WCAG 2.2 AA   | Feedback   |
+| [Card](/components/card)           | <Badge color="green" size="xs" children="Stable" />      | v1.0  | WCAG 2.2 AA   | Containers |
+| [Modal](/components/modal)         | <Badge color="green" size="xs" children="Stable" />      | v2.0  | WCAG 2.2 AA   | Containers |
+| Combobox                           | <Badge color="orange" size="xs" children="In progress" /> | —     | In review     | Forms      |
+| Data table                         | <Badge color="gray" size="xs" children="Proposed" />      | —     | —             | Containers |
+
+Missing a component? Start with the [contribution process](/resources/contribution-process).
+
+## Browse by category
+
+<Columns cols={2}>
+  <Card title="Actions" icon="mouse-pointer-click" href="/components/button">
+    Button, Toggle — the things users click.
+  </Card>
+  <Card title="Forms" icon="text-cursor-input" href="/components/input">
+    Input, Select — collecting and validating values.
+  </Card>
+  <Card title="Feedback" icon="triangle-alert" href="/components/alert">
+    Alert, Badge — communicating state.
+  </Card>
+  <Card title="Containers" icon="square" href="/components/card">
+    Card, Modal — structuring content.
+  </Card>
+</Columns>

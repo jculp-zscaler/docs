@@ -1,0 +1,41 @@
+---
+title: "Elevation"
+description: "Four shadow levels express hierarchy above the page surface. Higher elevation means closer to the user and more interruptive."
+icon: "layers-2"
+---
+
+The tiles below render the live tokens. Toggle dark mode — shadows deepen automatically because the tokens are remapped, not the components.
+
+<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 not-prose">
+  <div className="zds-elevation-tile" style={{ boxShadow: "var(--zds-shadow-1)" }}>
+    <span>Level 1</span>
+    <code>--zds-shadow-1</code>
+  </div>
+  <div className="zds-elevation-tile" style={{ boxShadow: "var(--zds-shadow-2)" }}>
+    <span>Level 2</span>
+    <code>--zds-shadow-2</code>
+  </div>
+  <div className="zds-elevation-tile" style={{ boxShadow: "var(--zds-shadow-3)" }}>
+    <span>Level 3</span>
+    <code>--zds-shadow-3</code>
+  </div>
+  <div className="zds-elevation-tile" style={{ boxShadow: "var(--zds-shadow-4)" }}>
+    <span>Level 4</span>
+    <code>--zds-shadow-4</code>
+  </div>
+</div>
+
+## When to use each level
+
+| Level | Token            | Use for                                   |
+| :---- | :--------------- | :---------------------------------------- |
+| 1     | `--zds-shadow-1` | Resting cards, inputs, table rows         |
+| 2     | `--zds-shadow-2` | Dropdowns, tooltips, hover states         |
+| 3     | `--zds-shadow-3` | Popovers, hovering interactive cards      |
+| 4     | `--zds-shadow-4` | Modals, command palettes — one per screen |
+
+## Rules
+
+- Elevation communicates **stacking order**, not importance. Use color and type for emphasis.
+- Never combine two level-4 surfaces — if a modal needs a modal, the flow needs a redesign.
+- Elevation changes animate with `--zds-duration` / `--zds-ease` and respect `prefers-reduced-motion`.

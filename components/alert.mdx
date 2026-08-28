@@ -1,0 +1,89 @@
+---
+title: "Alert"
+description: "Alerts communicate state changes and important context inline, without interrupting the flow."
+icon: "triangle-alert"
+---
+
+import { AlertSandbox } from "/snippets/alert-playground.jsx";
+
+<Badge color="green" size="sm" icon="circle-check" children="Stable" /> <Badge color="gray" size="sm" children="v3.2" /> <Badge color="blue" size="sm" children="WCAG 2.2 AA" />
+
+## Sandbox
+
+Edit the Alert markup to compare severities, titles, supporting text, and tinted surfaces.
+
+<AlertSandbox />
+
+<CodeGroup>
+
+```jsx React
+import { Alert } from "@zenith/ui";
+
+<Alert severity="warning" title="Certificate expiring">
+  The signing certificate expires in 14 days.
+</Alert>
+```
+
+```html HTML
+<div class="zds-alert zds-alert--warning" role="alert">
+  <span class="zds-alert__icon"><!-- icon --></span>
+  <span>
+    <p class="zds-alert__title">Certificate expiring</p>
+    <p class="zds-alert__body">The signing certificate expires in 14 days.</p>
+  </span>
+</div>
+```
+
+</CodeGroup>
+
+## Props
+
+| Prop       | Type                                              | Default  | Description                                        |
+| :--------- | :------------------------------------------------ | :------- | :------------------------------------------------- |
+| `severity` | `"info" \| "success" \| "warning" \| "danger"`   | `"info"` | Semantic severity; sets the icon and accent color. |
+| `title`    | `string`                                          | —        | One-line summary. Required.                        |
+| `tinted`   | `boolean`                                         | `false`  | Fills the background with the severity subtle color. |
+| `children` | `ReactNode`                                       | —        | Supporting detail. One or two sentences.           |
+
+## Usage
+
+<Columns cols={2}>
+  <div className="zds-do not-prose">
+    <span className="zds-do__label">Do</span>
+    <div className="zds-do__example" style={{ padding: "16px" }}>
+      <div className="zds-alert zds-alert--danger" role="alert">
+        <span><p className="zds-alert__title">Sync failed</p><p className="zds-alert__body">Retry from the policy page.</p></span>
+      </div>
+    </div>
+    <p className="zds-do__caption">Lead with what happened, then say what to do next.</p>
+  </div>
+  <div className="zds-dont not-prose">
+    <span className="zds-dont__label">Don't</span>
+    <div className="zds-dont__example" style={{ padding: "16px" }}>
+      <div className="zds-alert zds-alert--danger" role="alert">
+        <span><p className="zds-alert__title">Error 0x80070057</p><p className="zds-alert__body">EINVAL in sync worker.</p></span>
+      </div>
+    </div>
+    <p className="zds-dont__caption">Don't surface raw error codes as the user-facing message.</p>
+  </div>
+</Columns>
+
+## Accessibility
+
+<AccordionGroup>
+  <Accordion title="Semantics" icon="accessibility">
+    - Alerts rendered in response to a state change use `role="alert"` so screen readers announce them.
+    - Alerts present at page load use `role="status"` instead, to avoid duplicate announcements.
+    - The severity icon is `aria-hidden`; the title text carries the meaning.
+  </Accordion>
+</AccordionGroup>
+
+## Design tokens
+
+| Token                        | Role                      |
+| :--------------------------- | :------------------------ |
+| `--zds-color-primary`        | Info accent               |
+| `--zds-color-success`        | Success accent            |
+| `--zds-color-warning`        | Warning accent            |
+| `--zds-color-danger`         | Danger accent             |
+| `--zds-radius-md`            | Corner radius             |

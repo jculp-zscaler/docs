@@ -1,0 +1,70 @@
+---
+title: "Installation"
+description: "Install @zenith/ui, wire up the provider, and render your first component in under five minutes."
+icon: "download"
+---
+
+<Steps>
+  <Step title="Install the package">
+    <CodeGroup>
+
+    ```bash npm
+    npm install @zenith/ui
+    ```
+
+    ```bash yarn
+    yarn add @zenith/ui
+    ```
+
+    ```bash pnpm
+    pnpm add @zenith/ui
+    ```
+
+    </CodeGroup>
+  </Step>
+
+  <Step title="Wrap your app in the provider">
+    The provider injects tokens and manages the color scheme.
+
+    ```jsx App.jsx
+    import { ZenithProvider } from "@zenith/ui";
+    import "@zenith/ui/styles.css";
+
+    export const App = () => (
+      <ZenithProvider colorScheme="system">
+        <Router />
+      </ZenithProvider>
+    );
+    ```
+  </Step>
+
+  <Step title="Load GT Haptik">
+    Fonts ship with the package — import once at your app entry.
+
+    ```css globals.css
+    @import "@zenith/ui/fonts.css";
+    ```
+  </Step>
+
+  <Step title="Render your first component">
+    ```jsx
+    import { Button } from "@zenith/ui";
+
+    export const Toolbar = () => <Button>Deploy policy</Button>;
+    ```
+
+    Now open the [Button sandbox](/components/button) and edit its props.
+  </Step>
+</Steps>
+
+## Requirements
+
+| Dependency | Version   |
+| :--------- | :-------- |
+| React      | ≥ 18.0    |
+| Node       | ≥ 18 (build tooling) |
+| TypeScript | ≥ 5.0 (optional — types ship in the package) |
+
+<Note>
+  Not using React? Every component is also available as plain CSS classes — each component page includes the HTML variant in its code snippets.
+</Note>

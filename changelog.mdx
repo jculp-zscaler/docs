@@ -1,0 +1,74 @@
+---
+title: "Changelog"
+description: "Every @zenith/ui release: what shipped, what changed, and the tickets it closes."
+rss: true
+---
+
+<Update label="August 2026" description="v3.2.0" tags={["Components", "Tokens"]}>
+  ## Toggle sizes and semantic token expansion
+
+  ### Components
+  - **Toggle** gains an `sm` size for dense tables (`DS-241`). See the [Toggle sandbox](/components/toggle).
+  - **Modal** now restores focus to its trigger on close in all browsers (`DS-238`).
+
+  ### Tokens
+  - 14 new semantic tokens for status backgrounds and borders (`DS-236`) — browse them in the [token browser](/foundations/design-tokens).
+  - `--zds-color-warning` darkened one step to hold 4.5:1 contrast on `neutral-50` (`DS-233`).
+
+  ### Fixes
+  - **Select** chevron no longer overlaps long option labels (`DS-244`).
+</Update>
+
+<Update label="July 2026" description="v3.1.0" tags={["Docs", "Components"]}>
+  ## Documentation migrated to Mintlify
+
+  - **Zeroheight and Confluence retired** (`DS-201`): foundations, guidelines, and team processes now live on this site — and only here.
+  - **Storybook decommissioned** (`DS-202`): every component page now embeds an editable JSX sandbox with a rendered result. Old `/storybook/*` URLs redirect to the [component library](/components/overview).
+  - Legacy Zeroheight and Confluence URLs redirect to their new homes (`DS-205`).
+
+  ### Components
+  - **Alert** gains the `tinted` prop for filled backgrounds (`DS-228`).
+</Update>
+
+<Update label="June 2026" description="v3.0.1" tags={["Fixes"]}>
+  ## Patch: focus and contrast fixes
+
+  - Focus ring contrast raised to 3:1 on subtle backgrounds in dark mode (`DS-221`).
+  - **Input** error text now linked via `aria-describedby` (`DS-219`).
+</Update>
+
+<Update label="May 2026" description="v3.0.0" tags={["Breaking", "Tokens", "Components"]}>
+  ## ZDS 3.0: semantic token architecture
+
+  ### Breaking
+  - Components now consume **semantic tokens only** (`DS-180`). Any product CSS referencing core ramps (`--zds-blue-*`) directly should migrate to semantic tokens — see [design tokens](/foundations/design-tokens).
+  - **Button** `type` prop renamed to `variant` (`DS-184`). A codemod ships with the release.
+  - Deprecated `Banner` component removed; use [Alert](/components/alert) (`DS-186`).
+
+  ### Highlights
+  - Dark mode for every component via the semantic tier — zero component CSS changed (`DS-181`).
+  - New [elevation scale](/foundations/elevation) with four theme-aware levels (`DS-190`).
+</Update>
+
+<Update label="March 2026" description="v2.9.0" tags={["Components"]}>
+  ## Card composition slots
+
+  - **Card** gains `media` and `Card.Footer` slots (`DS-171`). See the [Card sandbox](/components/card).
+  - **Badge** adds the `outline` tone (`DS-168`).
+  - **Button** `loading` state announces `aria-busy` (`DS-165`).
+</Update>
+
+<Update label="February 2026" description="v2.8.1" tags={["Fixes"]}>
+  ## Patch: form field consistency
+
+  - **Select** and **Input** now share identical heights at every size (`DS-160`).
+  - Fixed **Toggle** thumb misalignment at 200% zoom (`DS-158`).
+</Update>
+
+<Update label="January 2026" description="v2.8.0" tags={["Components", "Tokens"]}>
+  ## Modal rebuild and motion tokens
+
+  - **Modal** rebuilt on native `dialog` semantics with focus trapping (`DS-140`). See the [Modal sandbox](/components/modal).
+  - New motion tokens `--zds-duration` and `--zds-ease`; all animation respects `prefers-reduced-motion` (`DS-143`).
+  - GT Haptik Medium (500) added for component labels (`DS-147`).
+</Update>

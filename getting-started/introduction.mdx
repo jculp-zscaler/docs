@@ -1,0 +1,50 @@
+---
+title: "Introduction"
+description: "What the Zenith Design System is, what it covers, and the principles behind it."
+icon: "book-open"
+---
+
+The Zenith Design System (ZDS) is the 
+
+<Info>
+  Hello! Yay we can all edit at once! No Way! 🫀 \< so realistic
+</Info>
+
+shared language for building product experiences: **tokens** define the visual decisions, **components** implement them, and **patterns** show how they compose. One source of truth, from Figma to production.
+
+## What lives here
+
+<Columns cols={2}>
+  <Card title="Foundations" icon="braces" href="/foundations/design-tokens" cta="Click the Things">
+    Tokens, color, typography, spacing, elevation, iconography — the decisions everything else inherits.
+  </Card>
+
+  <Card title="Components" icon="component" href="/components/overview">
+    Production components with editable JSX sandboxes. Change props, inspect the result, copy the code.
+  </Card>
+
+  <Card title="Patterns" icon="puzzle" href="/patterns/forms">
+    How components compose into forms, empty states, and accessible flows.
+  </Card>
+
+  <Card title="Resources" icon="library" href="/resources/contribution-process">
+    Team processes: contributing, design review, releases.
+  </Card>
+</Columns>
+
+## Principles
+
+1. **Semantic over literal.** Components consume meaning (`--zds-color-danger`), never raw values. That's why dark mode is free.
+2. **Accessible by default.** Every stable component meets WCAG 2.2 AA. Accessibility is a release gate, not a follow-up.
+3. **Live documentation.** If the docs show a component, it's the production component running — not a screenshot that can drift.
+4. **One way to do it.** When two components can solve the same problem, the docs say which one to use and when.
+
+## Where things run
+
+| Surface | What you get |
+| :-- | :-- |
+| `@zenith/ui` | React components, typed props, tree-shakeable |
+| CSS classes | `.zds-*` classes for non-React surfaces |
+| Figma library | Matching components and styles for design — see [for designers](/getting-started/for-designers) |
+
+New to ZDS? Continue to [installation](/getting-started/installation), or jump straight to a role-based guide: [for designers](/getting-started/for-designers) · [for developers](/getting-started/for-developers).

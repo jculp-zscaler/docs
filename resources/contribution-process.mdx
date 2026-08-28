@@ -1,0 +1,40 @@
+---
+title: "Contribution process"
+description: "How a component goes from idea to stable: propose, triage, build, review, release."
+icon: "git-pull-request"
+---
+
+<Info>
+  **Migrated from Confluence** · Space `ZDS` · Final Confluence revision 2026-07-30 · This page is now maintained here and only here.
+</Info>
+
+Anyone can propose a component or token. The system team triages weekly; typical time from proposal to stable is one release cycle.
+
+<Steps>
+  <Step title="Propose" icon="lightbulb">
+    Open a `DS` intake ticket with the problem (not the solution): where the gap shows up, how many teams hit it, and screenshots of the workarounds in production today.
+
+    <Note>A proposal that shows three teams building the same one-off gets triaged ahead of everything else.</Note>
+  </Step>
+  <Step title="Triage" icon="filter">
+    The system team reviews intake every Tuesday. Outcomes: **accepted** (scheduled), **pattern instead** (the gap is a composition, not a component — documented in [Patterns](/patterns/forms)), or **declined** (with reasoning on the ticket).
+  </Step>
+  <Step title="Build" icon="hammer">
+    Design and code develop in parallel against the same spec: tokens first, then the component in `@zenith/ui`, then its Figma counterpart. The component sandbox in these docs is written **during** the build — if documented props can't be rendered from JSX, the API isn't done.
+  </Step>
+  <Step title="Review" icon="shield-check">
+    Two gates, in order: the [design review checklist](/resources/design-review-checklist), then an accessibility audit against WCAG 2.2 AA. Both reviewers sign the `DS` ticket.
+  </Step>
+  <Step title="Release" icon="rocket">
+    Ships behind the next minor version per the [release process](/resources/release-process). The component enters the [status matrix](/components/overview) as **Stable**, and the [changelog](/changelog) entry links the original ticket.
+  </Step>
+</Steps>
+
+## Service levels
+
+| Request type          | First response | Typical resolution |
+| :-------------------- | :------------- | :----------------- |
+| New component         | 1 week         | 1 release cycle    |
+| New token / variant   | 1 week         | 2 weeks            |
+| Bug in a stable component | 2 business days | Next patch     |
+| Docs fix              | 2 business days | Same week         |

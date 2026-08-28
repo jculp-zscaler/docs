@@ -1,0 +1,121 @@
+---
+title: "Button"
+description: "Buttons trigger actions. Use one primary button per view; use secondary and ghost buttons for everything else."
+icon: "mouse-pointer-click"
+---
+
+import { ButtonSandbox } from "/snippets/button-playground.jsx";
+
+<Badge color="green" size="sm" icon="circle-check" children="Stable" /> <Badge color="gray" size="sm" children="v3.2" /> <Badge color="blue" size="sm" children="WCAG 2.2 AA" />
+
+## Sandbox
+
+Edit the Button markup to explore documented string and boolean props. The rendered result updates as you type.
+
+<ButtonSandbox />
+
+<CodeGroup>
+
+```jsx React
+import { Button } from "@zenith/ui";
+
+<Button>Deploy policy</Button>
+<Button variant="secondary">Save draft</Button>
+<Button variant="ghost">Cancel</Button>
+<Button variant="danger">Delete rule</Button>
+```
+
+```html HTML
+<button class="zds-btn zds-btn--primary zds-btn--md">Deploy policy</button>
+<button class="zds-btn zds-btn--secondary zds-btn--md">Save draft</button>
+<button class="zds-btn zds-btn--ghost zds-btn--md">Cancel</button>
+<button class="zds-btn zds-btn--danger zds-btn--md">Delete rule</button>
+```
+
+</CodeGroup>
+
+## Props
+
+| Prop       | Type                                              | Default     | Description                                              |
+| :--------- | :------------------------------------------------ | :---------- | :------------------------------------------------------- |
+| `variant`  | `"primary" \| "secondary" \| "ghost" \| "danger"` | `"primary"` | Visual emphasis of the button.                            |
+| `size`     | `"sm" \| "md" \| "lg"`                             | `"md"`      | Height and padding scale.                                 |
+| `disabled` | `boolean`                                          | `false`     | Prevents interaction and reduces opacity.                 |
+| `loading`  | `boolean`                                          | `false`     | Replaces the label with a spinner and blocks interaction. |
+| `children` | `ReactNode`                                        | —           | Button label. Keep it to a verb phrase.                   |
+
+## Usage
+
+<div className="zds-guideline-rows">
+  <Columns cols={2}>
+    <div className="zds-do not-prose">
+      <span className="zds-do__label">Do</span>
+      <div className="zds-do__example">
+        <span style={{ display: "inline-flex", gap: "12px" }}>
+          <button className="zds-btn zds-btn--secondary zds-btn--md">Cancel</button>
+          <button className="zds-btn zds-btn--primary zds-btn--md">Deploy policy</button>
+        </span>
+      </div>
+      <p className="zds-do__caption">Use one primary button per view, placed as the final action.</p>
+    </div>
+    <div className="zds-dont not-prose">
+      <span className="zds-dont__label">Don't</span>
+      <div className="zds-dont__example">
+        <span style={{ display: "inline-flex", gap: "12px" }}>
+          <button className="zds-btn zds-btn--primary zds-btn--md">Cancel</button>
+          <button className="zds-btn zds-btn--primary zds-btn--md">Deploy policy</button>
+        </span>
+      </div>
+      <p className="zds-dont__caption">Don't compete for attention with multiple primary buttons.</p>
+    </div>
+  </Columns>
+
+  <Columns cols={2}>
+    <div className="zds-do not-prose">
+      <span className="zds-do__label">Do</span>
+      <div className="zds-do__example">
+        <button className="zds-btn zds-btn--danger zds-btn--md">Delete rule</button>
+      </div>
+      <p className="zds-do__caption">Reserve the danger variant for destructive, hard-to-undo actions.</p>
+    </div>
+    <div className="zds-dont not-prose">
+      <span className="zds-dont__label">Don't</span>
+      <div className="zds-dont__example">
+        <button className="zds-btn zds-btn--danger zds-btn--md">Download report</button>
+      </div>
+      <p className="zds-dont__caption">Don't use danger styling for routine actions — it erodes the signal.</p>
+    </div>
+  </Columns>
+</div>
+
+## Accessibility
+
+<AccordionGroup>
+  <Accordion title="Keyboard interaction" icon="keyboard">
+    | Key               | Behavior                                        |
+    | :---------------- | :---------------------------------------------- |
+    | <kbd>Tab</kbd>    | Moves focus to the button.                      |
+    | <kbd>Enter</kbd>  | Activates the button.                           |
+    | <kbd>Space</kbd>  | Activates the button.                           |
+
+    Focus styles use a 3px ring at 3:1 contrast against adjacent colors.
+  </Accordion>
+  <Accordion title="ARIA and semantics" icon="accessibility">
+    - Renders a native `<button>` element — no ARIA role patching required.
+    - The `loading` state sets `aria-busy="true"` and keeps the accessible name stable while the label is visually replaced.
+    - Icon-only buttons require an `aria-label`. The sandbox above accepts text labels only.
+  </Accordion>
+</AccordionGroup>
+
+## Design tokens
+
+The Button consumes these tokens. Change them once in [design tokens](/foundations/design-tokens) and every button updates.
+
+| Token                        | Role                          |
+| :--------------------------- | :---------------------------- |
+| `--zds-color-primary`        | Primary background            |
+| `--zds-color-primary-hover`  | Primary hover background      |
+| `--zds-color-danger`         | Danger background             |
+| `--zds-radius-sm`            | Corner radius (`sm`/`md`)     |
+| `--zds-radius-md`            | Corner radius (`lg`)          |
+| `--zds-focus-ring`           | Focus indicator               |

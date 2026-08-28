@@ -1,0 +1,246 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "luma",
+  "name": "Zenith Design System",
+  "description": "Zenith Design System (ZDS) — components, tokens, and guidelines for building consistent product experiences.",
+  "colors": {
+    "primary": "#2066EE",
+    "light": "#4C86F7",
+    "dark": "#2066EE"
+  },
+  "background": {
+    "color": {
+      "light": "#F7FAFF",
+      "dark": "#07142E"
+    }
+  },
+  "logo": {
+    "light": "/assets/logo-blue.svg",
+    "dark": "/assets/logo-white.svg",
+    "href": "/"
+  },
+  "favicon": "/favicons/favicon.ico",
+  "appearance": {
+    "default": "system"
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "fonts": {
+    "family": "GTHaptikFont",
+    "source": "/fonts/gthaptik-regular.woff2",
+    "format": "woff2",
+    "body": {
+      "family": "GTHaptikFont",
+      "weight": 400,
+      "source": "/fonts/gthaptik-regular.woff2",
+      "format": "woff2"
+    },
+    "heading": {
+      "family": "GTHaptikFont",
+      "weight": 700,
+      "source": "/fonts/gthaptik-bold.woff2",
+      "format": "woff2"
+    }
+  },
+  "seo": {
+    "metatags": {
+      "robots": "noindex"
+    }
+  },
+  "banner": {
+    "content": "ZDS v3.2 shipped — new Toggle sizes and 14 new semantic tokens. See the [changelog](/changelog).",
+    "dismissible": true
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Install ZDS",
+      "href": "/getting-started/installation"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "assistant",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "errors": {
+    "404": {
+      "redirect": false,
+      "title": "This component doesn't exist (yet)",
+      "description": "Propose it through the [contribution process](/resources/contribution-process), or head back to the [component library](/components/overview)."
+    }
+  },
+  "redirects": [
+    {
+      "source": "/wiki/ZDS/component-contribution",
+      "destination": "/resources/contribution-process"
+    },
+    {
+      "source": "/wiki/ZDS/design-review-checklist",
+      "destination": "/resources/design-review-checklist"
+    },
+    {
+      "source": "/wiki/ZDS/release-process",
+      "destination": "/resources/release-process"
+    },
+    {
+      "source": "/zeroheight/foundations/color",
+      "destination": "/foundations/color"
+    },
+    {
+      "source": "/zeroheight/foundations/tokens",
+      "destination": "/foundations/design-tokens"
+    },
+    {
+      "source": "/storybook/:slug*",
+      "destination": "/components/overview"
+    }
+  ],
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book-open",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "getting-started/introduction",
+              "getting-started/installation",
+              "getting-started/for-designers",
+              "getting-started/for-developers"
+            ]
+          },
+          {
+            "group": "Foundations",
+            "pages": [
+              "foundations/design-tokens",
+              "foundations/color",
+              "foundations/typography",
+              "foundations/spacing",
+              "foundations/elevation",
+              "foundations/iconography"
+            ]
+          },
+          {
+            "group": "Patterns",
+            "pages": [
+              "patterns/forms",
+              "patterns/empty-states",
+              "patterns/accessibility"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Components",
+        "icon": "component",
+        "groups": [
+          {
+            "group": "Library",
+            "pages": ["components/overview"]
+          },
+          {
+            "group": "Actions",
+            "pages": ["components/button", "components/toggle"]
+          },
+          {
+            "group": "Forms",
+            "pages": ["components/input", "components/select"]
+          },
+          {
+            "group": "Feedback",
+            "pages": ["components/alert", "components/badge"]
+          },
+          {
+            "group": "Containers",
+            "pages": ["components/card", "components/modal"]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "icon": "library",
+        "groups": [
+          {
+            "group": "Team processes",
+            "pages": [
+              "resources/contribution-process",
+              "resources/design-review-checklist",
+              "resources/release-process"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "icon": "history",
+        "pages": ["changelog"]
+      }
+    ]
+  },
+  "footer": {
+    "links": [
+      {
+        "header": "Foundations",
+        "items": [
+          {
+            "label": "Design tokens",
+            "href": "/foundations/design-tokens"
+          },
+          {
+            "label": "Color",
+            "href": "/foundations/color"
+          },
+          {
+            "label": "Typography",
+            "href": "/foundations/typography"
+          }
+        ]
+      },
+      {
+        "header": "Components",
+        "items": [
+          {
+            "label": "Component library",
+            "href": "/components/overview"
+          },
+          {
+            "label": "Button",
+            "href": "/components/button"
+          },
+          {
+            "label": "Changelog",
+            "href": "/changelog"
+          }
+        ]
+      },
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "Contribution process",
+            "href": "/resources/contribution-process"
+          },
+          {
+            "label": "Design Checklist",
+            "href": "/resources/design-review-checklist"
+          },
+          {
+            "label": "Release process",
+            "href": "/resources/release-process"
+          }
+        ]
+      }
+    ]
+  }
+}

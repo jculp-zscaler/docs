@@ -1,0 +1,45 @@
+---
+title: "Accessibility"
+description: "ZDS targets WCAG 2.2 AA across every stable component. Here's what the system guarantees and what your product still owns."
+icon: "accessibility"
+---
+
+## What the system guarantees
+
+Every component marked **Stable** in the [component library](/components/overview) ships with:
+
+- **Contrast**: text at 4.5:1, large text and UI boundaries at 3:1, in both themes — enforced by the [color rules](/foundations/color).
+- **Keyboard support**: every interactive component is fully operable by keyboard; key maps are documented per component.
+- **Focus visibility**: a 3px focus ring (`--zds-focus-ring`) at 3:1 contrast against adjacent colors, never removed.
+- **Semantics**: native elements first (`<button>`, `<select>`, checkbox-backed toggles); <Tooltip headline="ARIA" tip="Accessible Rich Internet Applications attributes add accessibility information when native HTML cannot express it.">ARIA</Tooltip> only where HTML falls short.
+- **Reduced motion**: all animation respects `prefers-reduced-motion`.
+
+## What your product owns
+
+The system can't see your page. Product teams are responsible for:
+
+| Responsibility        | Rule of thumb                                                       |
+| :-------------------- | :------------------------------------------------------------------ |
+| Heading structure     | One `h1` per page; levels never skip.                               |
+| Focus order           | DOM order is reading order. After a [Modal](/components/modal) closes, focus returns to its trigger. |
+| Labels                | Every [Input](/components/input) and [Select](/components/select) gets a visible label — placeholder text is not a label. |
+| Alt text              | Informative images describe; decorative images set `alt=""`.        |
+| Error recovery        | Follow the [forms pattern](/patterns/forms): errors say how to fix. |
+| Color as signal       | Never the only signal — pair color with text or an icon, as [Badge](/components/badge) does. |
+
+## Testing checklist
+
+<Steps>
+  <Step title="Keyboard only">
+    Unplug the mouse. Complete the page's primary task with <kbd>Tab</kbd>, <kbd>Enter</kbd>, <kbd>Space</kbd>, and arrow keys.
+  </Step>
+  <Step title="Screen reader pass">
+    With VoiceOver or NVDA: every control announces a name, role, and state; alerts are announced when they appear.
+  </Step>
+  <Step title="Zoom to 200%">
+    No horizontal scrolling, no clipped controls, no overlapping text.
+  </Step>
+  <Step title="Contrast audit">
+    Anything not using ZDS tokens gets checked manually against the [contrast rules](/foundations/color#contrast-rules).
+  </Step>
+</Steps>

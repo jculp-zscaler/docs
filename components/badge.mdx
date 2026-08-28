@@ -1,0 +1,79 @@
+---
+title: "Badge"
+description: "Badges label status and metadata at a glance. They are never interactive."
+icon: "tag"
+---
+
+import { BadgeSandbox } from "/snippets/badge-playground.jsx";
+
+<Badge color="green" size="sm" icon="circle-check" children="Stable" /> <Badge color="gray" size="sm" children="v3.2" /> <Badge color="blue" size="sm" children="WCAG 2.2 AA" />
+
+## Sandbox
+
+Edit the Badge markup to explore tones and status dots. The rendered result updates as you type.
+
+<BadgeSandbox />
+
+<CodeGroup>
+
+```jsx React
+import { Badge } from "@zenith/ui";
+
+<Badge tone="success" dot>Active</Badge>
+<Badge tone="warning">Expiring</Badge>
+<Badge tone="outline">Draft</Badge>
+```
+
+```html HTML
+<span class="zds-badge zds-badge--success">
+  <span class="zds-badge__dot"></span>Active
+</span>
+```
+
+</CodeGroup>
+
+## Props
+
+| Prop       | Type                                                                       | Default     | Description                                 |
+| :--------- | :------------------------------------------------------------------------- | :---------- | :------------------------------------------ |
+| `tone`     | `"neutral" \| "brand" \| "success" \| "warning" \| "danger" \| "outline"` | `"neutral"` | Semantic color of the badge.                |
+| `dot`      | `boolean`                                                                   | `false`     | Shows a leading status dot.                 |
+| `children` | `ReactNode`                                                                 | —           | Badge text. One or two words.               |
+
+## Usage
+
+<Columns cols={2}>
+  <div className="zds-do not-prose">
+    <span className="zds-do__label">Do</span>
+    <div className="zds-do__example">
+      <span className="zds-badge zds-badge--success"><span className="zds-badge__dot" />Active</span>
+    </div>
+    <p className="zds-do__caption">Use tone to convey state — the word and the color should agree.</p>
+  </div>
+  <div className="zds-dont not-prose">
+    <span className="zds-dont__label">Don't</span>
+    <div className="zds-dont__example">
+      <span className="zds-badge zds-badge--danger">Click to retry</span>
+    </div>
+    <p className="zds-dont__caption">Don't use badges as buttons. Badges are read-only labels.</p>
+  </div>
+</Columns>
+
+## Accessibility
+
+<AccordionGroup>
+  <Accordion title="Semantics" icon="accessibility">
+    - Badges are static `<span>` elements — they receive no focus and no pointer affordance.
+    - Color is never the only signal: the badge text carries the state on its own.
+    - All tone combinations meet a 4.5:1 contrast ratio in light and dark themes.
+  </Accordion>
+</AccordionGroup>
+
+## Design tokens
+
+| Token                         | Role                     |
+| :---------------------------- | :----------------------- |
+| `--zds-color-success-subtle`  | Success background       |
+| `--zds-color-warning-subtle`  | Warning background       |
+| `--zds-color-danger-subtle`   | Danger background        |
+| `--zds-radius-full`           | Pill radius              |

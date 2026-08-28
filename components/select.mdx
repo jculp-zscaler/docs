@@ -1,0 +1,93 @@
+---
+title: "Select"
+description: "Selects choose one option from a short, known list. For more than ~15 options, use a combobox pattern instead."
+icon: "chevrons-up-down"
+---
+
+import { SelectSandbox } from "/snippets/select-playground.jsx";
+
+<Badge color="green" size="sm" icon="circle-check" children="Stable" /> <Badge color="gray" size="sm" children="v3.2" /> <Badge color="blue" size="sm" children="WCAG 2.2 AA" />
+
+## Sandbox
+
+Edit the Select markup and its options to explore labels, validation, and disabled states.
+
+<SelectSandbox />
+
+<CodeGroup>
+
+```jsx React
+import { Select } from "@zenith/ui";
+
+<Select label="Region">
+  <Select.Option value="All regions" />
+  <Select.Option value="Americas" />
+  <Select.Option value="EMEA" />
+  <Select.Option value="APAC" />
+</Select>
+```
+
+```html HTML
+<div class="zds-field">
+  <label class="zds-field__label" for="region">Region</label>
+  <select class="zds-select" id="region">
+    <option>All regions</option>
+    <option>Americas</option>
+  </select>
+</div>
+```
+
+</CodeGroup>
+
+## Props
+
+| Prop       | Type      | Default | Description                                             |
+| :--------- | :-------- | :------ | :------------------------------------------------------ |
+| `label`    | `string`  | —       | Visible label. Required.                                |
+| `error`    | `string`  | —       | Error message; replaces the hint and styles the border. |
+| `required` | `boolean` | `false` | Marks the label and sets `aria-required`.               |
+| `disabled` | `boolean` | `false` | Prevents interaction.                                   |
+| `children` | `ReactNode` | —     | `Select.Option` elements.                               |
+
+## Usage
+
+<Columns cols={2}>
+  <div className="zds-do not-prose">
+    <span className="zds-do__label">Do</span>
+    <div className="zds-do__example">
+      <div className="zds-field" style={{ width: "210px" }}>
+        <span className="zds-field__label">Region</span>
+        <select className="zds-select" defaultValue="All regions"><option>All regions</option></select>
+      </div>
+    </div>
+    <p className="zds-do__caption">Default to the safest, most common option.</p>
+  </div>
+  <div className="zds-dont not-prose">
+    <span className="zds-dont__label">Don't</span>
+    <div className="zds-dont__example">
+      <div className="zds-field" style={{ width: "210px" }}>
+        <span className="zds-field__label">Enabled?</span>
+        <select className="zds-select" defaultValue="Yes"><option>Yes</option><option>No</option></select>
+      </div>
+    </div>
+    <p className="zds-dont__caption">Don't use a select for a binary choice — use a [Toggle](/components/toggle).</p>
+  </div>
+</Columns>
+
+## Accessibility
+
+<AccordionGroup>
+  <Accordion title="Semantics" icon="accessibility">
+    - Renders a native `<select>` — full keyboard and screen-reader support with zero custom ARIA.
+    - The chevron affordance is a background image and stays out of the accessibility tree.
+    - Native behavior on mobile: the OS option picker opens, not a custom dropdown.
+  </Accordion>
+</AccordionGroup>
+
+## Design tokens
+
+| Token                       | Role            |
+| :-------------------------- | :-------------- |
+| `--zds-color-border-strong` | Resting border  |
+| `--zds-color-primary`       | Focus border    |
+| `--zds-radius-sm`           | Corner radius   |

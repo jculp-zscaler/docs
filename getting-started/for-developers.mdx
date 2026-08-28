@@ -1,0 +1,58 @@
+---
+title: "For developers"
+description: "Imports, tokens in code, TypeScript, and the rules that keep bundles small and upgrades painless."
+icon: "code"
+---
+
+## Imports
+
+Import components from the package root — the package is <Tooltip headline="Tree-shakeable" tip="Your bundler can remove exports that your application does not import.">tree-shakeable</Tooltip>, so you only ship what you use.
+
+```jsx
+import { Button, Card, Badge } from "@zenith/ui";
+```
+
+## Tokens in code
+
+<CodeGroup>
+
+```css CSS
+.status-panel {
+  background: var(--zds-color-bg-surface);
+  border-radius: var(--zds-radius-lg);
+  padding: var(--zds-space-5);
+}
+```
+
+```jsx React
+import { tokens } from "@zenith/ui";
+
+const panelStyle = {
+  background: tokens.color.bgSurface,
+  padding: tokens.space[5],
+};
+```
+
+</CodeGroup>
+
+Browse and copy every token in the [token browser](/foundations/design-tokens), or open the [token relationship graph](/foundations/design-tokens#token-relationships) to see which components inherit a primitive. Consume <Tooltip headline="Semantic tokens" tip="Tokens named for purpose rather than appearance, so their resolved values can change by theme." cta="Browse tokens" href="/foundations/design-tokens">semantic tokens</Tooltip> (`--zds-color-*`) rather than core ramps (`--zds-blue-*`) — semantic tokens are theme-aware; core ramps are not.
+
+## TypeScript
+
+Props are fully typed. Variant unions are exported for reuse:
+
+```tsx
+import { Button, type ButtonProps } from "@zenith/ui";
+
+type ToolbarAction = {
+  label: string;
+  variant: ButtonProps["variant"];
+};
+```
+
+## Rules of the road
+
+- **Don't restyle components.** If a component needs a new look, that's a [contribution](/resources/contribution-process), not a CSS override.
+- **Don't reach into internals.** Class names inside components (other than the documented `.zds-*` API) are not stable.
+- **Do compose.** Patterns like [forms](/patterns/forms) show sanctioned compositions.
+- **Pin minor versions** and read the [changelog](/changelog) before upgrading — deprecations get one minor version of warning.

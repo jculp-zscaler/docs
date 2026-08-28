@@ -1,0 +1,35 @@
+---
+title: "For designers"
+description: "How to design with ZDS: the Figma library, token workflow, and what to check before handoff."
+icon: "pen-tool"
+---
+
+## Set up the Figma library
+
+<Steps>
+  <Step title="Enable the library">
+    In Figma, open **Assets → Team libraries** and enable **Zenith Design System v3**. Components, color styles, text styles, and effect styles all sync from the published library.
+  </Step>
+  <Step title="Use styles, never raw values">
+    Every fill, text, and effect in your file should reference a ZDS style. If you're picking a hex value manually, the design won't survive handoff.
+  </Step>
+  <Step title="Name frames by pattern">
+    Use the pattern names from these docs (for example `forms/stacked`) so engineers can map your file to [patterns](/patterns/forms) directly.
+  </Step>
+</Steps>
+
+## Design ↔ code parity
+
+The components in Figma and the components on these pages are the same component. When you're unsure how a state behaves — hover, focus, loading, error — edit the component sandbox instead of guessing:
+
+- [Button sandbox](/components/button) — variants, sizes, loading
+- [Input sandbox](/components/input) — hint, error, required states
+- [Modal sandbox](/components/modal) — dismissible behavior
+
+## Before handoff
+
+- All colors and text use ZDS styles (run the lint plugin: **Plugins → ZDS Lint**).
+- Spacing uses [scale steps](/foundations/spacing) only.
+- Every interactive element has a visible focus state in the spec.
+- Error states are designed, not implied — see the [forms pattern](/patterns/forms).
+- New component needed? File it through the [contribution process](/resources/contribution-process) before building a one-off.

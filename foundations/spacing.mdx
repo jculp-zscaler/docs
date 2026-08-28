@@ -1,0 +1,77 @@
+---
+title: "Spacing"
+description: "A base-4 spacing scale with ten steps. If a value isn't on the scale, it isn't in the design."
+icon: "ruler"
+---
+
+## Scale
+
+The bars below are rendered live from the CSS custom properties — they *are* the tokens.
+
+<div className="not-prose">
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-1</span>
+    <span className="zds-space-row__value">4px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-1)" }} />
+  </div>
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-2</span>
+    <span className="zds-space-row__value">8px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-2)" }} />
+  </div>
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-3</span>
+    <span className="zds-space-row__value">12px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-3)" }} />
+  </div>
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-4</span>
+    <span className="zds-space-row__value">16px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-4)" }} />
+  </div>
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-5</span>
+    <span className="zds-space-row__value">20px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-5)" }} />
+  </div>
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-6</span>
+    <span className="zds-space-row__value">24px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-6)" }} />
+  </div>
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-7</span>
+    <span className="zds-space-row__value">32px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-7)" }} />
+  </div>
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-8</span>
+    <span className="zds-space-row__value">40px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-8)" }} />
+  </div>
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-9</span>
+    <span className="zds-space-row__value">48px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-9)" }} />
+  </div>
+  <div className="zds-space-row">
+    <span className="zds-space-row__name">--zds-space-10</span>
+    <span className="zds-space-row__value">64px</span>
+    <span className="zds-space-bar" style={{ width: "var(--zds-space-10)" }} />
+  </div>
+</div>
+
+## How to choose a step
+
+| Range              | Use for                                            |
+| :----------------- | :------------------------------------------------- |
+| `space-1` – `space-3` | Inside components: icon gaps, label spacing     |
+| `space-4` – `space-6` | Between related elements: form fields, card padding |
+| `space-7` – `space-10`| Between sections: page regions, empty-state padding |
+
+## Rules
+
+- Vertical rhythm between form fields is `space-5` (20px).
+- Card and modal padding is `space-5`; dense tables may drop to `space-3`.
+- Section spacing on marketing-style pages starts at `space-9`.
+- Never introduce off-scale values — request a new step through the [contribution process](/resources/contribution-process) instead.
